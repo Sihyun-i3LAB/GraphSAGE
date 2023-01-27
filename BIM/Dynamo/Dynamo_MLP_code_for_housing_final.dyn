@@ -1,0 +1,3550 @@
+{
+  "Uuid": "5ccb9602-3da9-46c6-ac94-31acc96dca32",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "Dynamo_MLP_code_for_housing1",
+  "ElementResolver": {
+    "ResolutionMap": {
+      "Maths": {
+        "Key": "archilab.Core.Maths",
+        "Value": "archilab2022.dll"
+      },
+      "DSCore.Math": {
+        "Key": "DSCore.Math",
+        "Value": "DSCoreNodes.dll"
+      }
+    }
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "DSRevitNodesUI.ElementsOfCategory, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "Id": "91a6d89a5aed43d1834e5b89727503f5",
+      "Inputs": [
+        {
+          "Id": "7e8148d2b29d4290948b7428c46127b8",
+          "Name": "Category",
+          "Description": "카테고리",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "32136c952c034740b2c1e6a734f27684",
+          "Name": "Elements",
+          "Description": "요소 클래스입니다.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "모델에서 지정된 카테고리의 모든 요소를 가져옵니다."
+    },
+    {
+      "ConcreteType": "DSRevitNodesUI.Categories, DSRevitNodesUI",
+      "SelectedIndex": 290,
+      "SelectedString": "OST_Rooms",
+      "NodeType": "ExtensionNode",
+      "Id": "0cb82f7be46f4dd2bda94d6e218656ab",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "949e12ae3754449b8c7766afd86e06ae",
+          "Name": "Category",
+          "Description": "선택된 카테고리.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "모든 내장 카테고리."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.Room.Area",
+      "Id": "6a046ff143bf4c27af446a005d3d18b3",
+      "Inputs": [
+        {
+          "Id": "aabf9d8ef0474128adb0fad188a7d5a7",
+          "Name": "room",
+          "Description": "Revit.Elements.Room",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "2169a8a563dc4eb88823de5e66ccc34d",
+          "Name": "double",
+          "Description": "double",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "룸 면적 가져오기\n\nRoom.Area: double"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "DSCore.Math.Round(n,3);",
+      "Id": "6a234d9f25e34004b491bdfca481d463",
+      "Inputs": [
+        {
+          "Id": "ba2d806382074b23b8ef77a49f34546b",
+          "Name": "n",
+          "Description": "n",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "68393bbf34f4446087a7ab780ac2aa86",
+          "Name": "",
+          "Description": "선 1의 표현식 값",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "DesignScript 코드를 직접 작성할 수 있습니다"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.Room.Volume",
+      "Id": "6939901244374af69fb8a7cc48b1720f",
+      "Inputs": [
+        {
+          "Id": "dba09992cd3d4d2dbf5a0c85c82ebdaa",
+          "Name": "room",
+          "Description": "Revit.Elements.Room",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "32a3fbf356904322bfe4b42d2c9136aa",
+          "Name": "double",
+          "Description": "double",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "룸 체적 가져오기\n\nRoom.Volume: double"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "DSCore.Math.Round(n,3);",
+      "Id": "63d781eb8f32408bbdc6ff53e106aeba",
+      "Inputs": [
+        {
+          "Id": "b56cecb947e64c3f8d2731c8f370b262",
+          "Name": "n",
+          "Description": "n",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "1814a30d42d647df87c1754dd1e9d821",
+          "Name": "",
+          "Description": "선 1의 표현식 값",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "DesignScript 코드를 직접 작성할 수 있습니다"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.Room.CoreBoundary",
+      "Id": "a951137010364685a5d0138dfc3f240a",
+      "Inputs": [
+        {
+          "Id": "4b7731dfd5da4b51bda90ef2a6bd7ba9",
+          "Name": "room",
+          "Description": "Revit.Elements.Room",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "eaa9938a7eb74f0b895c7c106ff7a98a",
+          "Name": "Curve[][]",
+          "Description": "Curve[][]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "코어 경계\n\nRoom.CoreBoundary: Curve[][]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Surface.Perimeter",
+      "Id": "48367a7c53cc4043aef4a17e73dd2c89",
+      "Inputs": [
+        {
+          "Id": "d089cf82090b4bc0a28353c53ff76939",
+          "Name": "surface",
+          "Description": "Autodesk.DesignScript.Geometry.Surface",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "cd0126667f1341f9a3a369a40beba149",
+          "Name": "double",
+          "Description": "double",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "표면의 모든 모서리의 합을 반환합니다.\n\nSurface.Perimeter: double"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.PolyCurve.ByJoinedCurves@Autodesk.DesignScript.Geometry.Curve[],double",
+      "Id": "213773e2e44d485a96ea4a03692c73fb",
+      "Inputs": [
+        {
+          "Id": "e5aac83e546244d7a86efc3b79dd197d",
+          "Name": "curves",
+          "Description": "PolyCurve에 결합할 곡선\n\nCurve[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": true,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "c3d05f77aca74a8d92844701d116f7b8",
+          "Name": "joinTolerance",
+          "Description": "결합할 곡선 간에 허용되는 간격 크기를 결정하는 공차\n\ndouble\n기본값 : 0.001",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "efcdc15831a34f95a82d5f011179987c",
+          "Name": "PolyCurve",
+          "Description": "PolyCurve",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "곡선을 결합하여 PolyCurve를 작성합니다. 연결이 필요한 경우 곡선을 반전합니다. 1e-6 ~ 1e-3 유닛 사이에서 기본 결합 공차를 선택합니다.\n\nPolyCurve.ByJoinedCurves (curves: Curve[], joinTolerance: double = 0.001): PolyCurve"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Surface.ByPatch@Autodesk.DesignScript.Geometry.Curve",
+      "Id": "a0bdfad3ee574ce2acf298ab4562c817",
+      "Inputs": [
+        {
+          "Id": "0098ede221fe4477a9edece1f18b4f2e",
+          "Name": "closedCurve",
+          "Description": "Curve",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "e0007d8f4deb40b29e59b9217dc591b8",
+          "Name": "Surface",
+          "Description": "Surface",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "입력 곡선에 의해 정의된 닫힌 경계의 내부를 채워 표면을 만듭니다.\n\nSurface.ByPatch (closedCurve: Curve): Surface"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "DSCore.Math.Round(n,2);",
+      "Id": "681da51a43bc462fbbba0340abdda8a2",
+      "Inputs": [
+        {
+          "Id": "0b36a7a102e54200976aa7b928618f7a",
+          "Name": "n",
+          "Description": "n",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "2b669b2b7e6e41fc956992bc31a59084",
+          "Name": "",
+          "Description": "선 1의 표현식 값",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "DesignScript 코드를 직접 작성할 수 있습니다"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.Element.BoundingBox",
+      "Id": "87dc31e0abaf4de6868143266945549c",
+      "Inputs": [
+        {
+          "Id": "074404f18b524a85b1f02d082cb68795",
+          "Name": "element",
+          "Description": "Revit.Elements.Element",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "7a6299b5df1b4c919e1c97531b446c91",
+          "Name": "BoundingBox",
+          "Description": "BoundingBox",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "요소의 축에 정렬되는 BoundingBox 가져오기\n\nElement.BoundingBox: BoundingBox"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.BoundingBox.ToCuboid",
+      "Id": "f91d93e216b9470181d27bc5fe93ec1d",
+      "Inputs": [
+        {
+          "Id": "7cd57d9c099b425e80433e02b4cdcdfa",
+          "Name": "boundingBox",
+          "Description": "Autodesk.DesignScript.Geometry.BoundingBox",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "715644b017184cf3aa553d4543c56409",
+          "Name": "Cuboid",
+          "Description": "경계 상자의 직육면체 표현",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "BoundingBox를 솔리드 직육면체로 가져오기\n\nBoundingBox.ToCuboid ( ): Cuboid"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Cuboid.Length",
+      "Id": "ac6513ae6e98446fbdf0aa4fd3c406cd",
+      "Inputs": [
+        {
+          "Id": "a34fdf440cff4f42892ce9f7cc0ba4f3",
+          "Name": "cuboid",
+          "Description": "Autodesk.DesignScript.Geometry.Cuboid",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "d8345ec8b4db4d47af4597c7d4ba94bd",
+          "Name": "double",
+          "Description": "double",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "길이 거리를 반환합니다. 주: 이 함수는 실제 표준 공간 치수가 아니라 직육면체의 입력 치수를 반환합니다. 다시 말해, 폭(X축) 길이가 10인 직육면체를 만들어 X 축척을 두 배로 하여 CoordinateSystem으로 변환해도 폭은 여전히 10입니다. ASM에서는 예측 가능한 순서로 본체의 정점을 추출할 수 없으므로 변환 후 치수를 결정할 수 없습니다.\n\nCuboid.Length: double"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Cuboid.Width",
+      "Id": "826543badf88462db9dbeaa043e733a7",
+      "Inputs": [
+        {
+          "Id": "ea5be1c1a8b74e31a1737a1e9cac9133",
+          "Name": "cuboid",
+          "Description": "Autodesk.DesignScript.Geometry.Cuboid",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "3c87ea76153741e2b6a791935800e8fe",
+          "Name": "double",
+          "Description": "double",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "폭 거리를 반환합니다. 주: 이 함수는 실제 표준 공간 치수가 아니라 직육면체의 입력 치수를 반환합니다. 다시 말해, 폭(X축) 길이가 10인 직육면체를 만들어 X 축척을 두 배로 하여 CoordinateSystem으로 변환해도 폭은 여전히 10입니다. ASM에서는 예측 가능한 순서로 본체의 정점을 추출할 수 없으므로 변환 후 치수를 결정할 수 없습니다.\n\nCuboid.Width: double"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "DSCore.Math.Round(n,3);",
+      "Id": "6db252a84f7e45d1a6b9e8d1a8299f2f",
+      "Inputs": [
+        {
+          "Id": "1a9ac962ee8f4b7b81eea8f55ab3a9ca",
+          "Name": "n",
+          "Description": "n",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "ff1e1eac80cb4ce49a80299fc2f8554b",
+          "Name": "",
+          "Description": "선 1의 표현식 값",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "DesignScript 코드를 직접 작성할 수 있습니다"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "DSCore.Math.Round(n,3);",
+      "Id": "c695a4b024904e2199126699c06d2fec",
+      "Inputs": [
+        {
+          "Id": "484cc2633d6448cd8cd1f628d4c5f53b",
+          "Name": "n",
+          "Description": "n",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "42f64df32c3a419ab2c8236243bd8a41",
+          "Name": "",
+          "Description": "선 1의 표현식 값",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "DesignScript 코드를 직접 작성할 수 있습니다"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "DSCore.Math.Round(length/width, 9);",
+      "Id": "d9ef63e78b9e45d5b199a45a673caf1c",
+      "Inputs": [
+        {
+          "Id": "dd4612717f8a45638eac247d5688d8ac",
+          "Name": "length",
+          "Description": "length",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "f1d3110e900245ef8e18ccbbc43e85d9",
+          "Name": "width",
+          "Description": "width",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "14c4c1b35b984fedb616a6ef32b54d0d",
+          "Name": "",
+          "Description": "선 1의 표현식 값",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "DesignScript 코드를 직접 작성할 수 있습니다"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.CreateList, CoreNodeModels",
+      "VariableInputPorts": true,
+      "NodeType": "ExtensionNode",
+      "Id": "315abb6afc5a48dabe66bad63e99eaa3",
+      "Inputs": [
+        {
+          "Id": "43a568ce24ff454794fe123bb4f4c36f",
+          "Name": "item0",
+          "Description": "항목 인덱스 #0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "a52e7d9e7130402fa85943b675afdaea",
+          "Name": "item1",
+          "Description": "항목 Index 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "2f61eab24fff495d864d0ae3e416dcb8",
+          "Name": "item2",
+          "Description": "항목 Index 2",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "da278c1f51774720bfb72422c36aeb9f",
+          "Name": "item3",
+          "Description": "항목 Index 3",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "319d037c222940289e0695808e08a544",
+          "Name": "item4",
+          "Description": "항목 Index 4",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "75c5d4319f6e4d1ba9f7d1a8b5e17b4f",
+          "Name": "item5",
+          "Description": "항목 Index 5",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "350d8670037d44899e894810688ae56e",
+          "Name": "item6",
+          "Description": "항목 Index 6",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "e63a5c70b7d74186baba495dadc372ff",
+          "Name": "item7",
+          "Description": "항목 Index 7",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "3aae8a09064f419a8ccf0d998114c929",
+          "Name": "item8",
+          "Description": "항목 Index 8",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "0f405a4f5aeb48f090ce7e4c1439977c",
+          "Name": "item9",
+          "Description": "항목 Index 9",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "08f75ec9bc04412fbd79451708b98cb7",
+          "Name": "item10",
+          "Description": "항목 Index 10",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "7637534d7e5849a29f0029a2dcdb2d2f",
+          "Name": "item11",
+          "Description": "항목 Index 11",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "00bd3a83c7f24134b11d0b25b4884125",
+          "Name": "list",
+          "Description": "리스트(유형: var[]..[])",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "지정된 입력에서 새 리스트를 만듭니다"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.List.Count@var[]..[]",
+      "Id": "8bb0e9c7dff34f329ab6f343b37881c1",
+      "Inputs": [
+        {
+          "Id": "1da110daebe940a1ba90820c4e83864e",
+          "Name": "list",
+          "Description": "항목 수를 가져올 리스트.\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": true,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "51d594f5ddef4dbb9b5a6ca2e21ea104",
+          "Name": "count",
+          "Description": "리스트 길이.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "지정된 리스트에 저장된 항목의 개수를 반환합니다.\n\nList.Count (list: var[]..[]): int"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.Element.Geometry",
+      "Id": "cdaecc48586a4805af51472579cb8046",
+      "Inputs": [
+        {
+          "Id": "97f2239bc21d4e498fbace62d6797586",
+          "Name": "element",
+          "Description": "Revit.Elements.Element",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "764d2594f34442bbb988536acb032e9c",
+          "Name": "var[]",
+          "Description": "var[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "이 객체와 연관된 모든 형상 가져오기\n\nElement.Geometry ( ): var[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Solid.Area",
+      "Id": "7ec407d1026d4d7d92f2496396499791",
+      "Inputs": [
+        {
+          "Id": "78a4a35108b1484c8e7b514214ca6702",
+          "Name": "solid",
+          "Description": "Autodesk.DesignScript.Geometry.Solid",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "36a4d9a586ab43919656c8b3a63c053b",
+          "Name": "double",
+          "Description": "double",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "표면적(모든 면의 면적의 합)을 반환합니다\n\nSolid.Area: double"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.List.Flatten@var[]..[],int",
+      "Id": "5564add84a1a4cde94558b2c979f1981",
+      "Inputs": [
+        {
+          "Id": "86106ceef4744f0e9b4ad79f4b104855",
+          "Name": "list",
+          "Description": "단순화할 리스트.\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "7e2ec07762eb488d911f479f6bcbd528",
+          "Name": "amt",
+          "Description": "제거할 내포 레이어.\n\nint\n기본값 : -1",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "da5c51040a744af49847ab9a94b00191",
+          "Name": "var[]..[]",
+          "Description": "var[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "리스트의 내포된 리스트를 특정한 양만큼 단순화합니다.\n\nList.Flatten (list: var[]..[], amt: int = -1): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "DSCore.Math.Round(n,3);",
+      "Id": "1a990646d308444891f9d136991f9bd4",
+      "Inputs": [
+        {
+          "Id": "2571f75d1afc4eafb157c88779156091",
+          "Name": "n",
+          "Description": "n",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "71fdeef487c342f8b6855ffde929436e",
+          "Name": "",
+          "Description": "선 1의 표현식 값",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "DesignScript 코드를 직접 작성할 수 있습니다"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "DSCore.Math.Round(area/volume, 9);",
+      "Id": "cc56ff7c6ef24bd2aebf92140567cae4",
+      "Inputs": [
+        {
+          "Id": "0b0762f8a8154d9e980cc5f1b9693fe5",
+          "Name": "area",
+          "Description": "area",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "e362e19810884b09bba013d15c88d69f",
+          "Name": "volume",
+          "Description": "volume",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "9c0e43cf51cd42c4bda490f92de3cd87",
+          "Name": "",
+          "Description": "선 1의 표현식 값",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "DesignScript 코드를 직접 작성할 수 있습니다"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.Room.Name",
+      "Id": "2d3f07090ba34f0188154e8198031e08",
+      "Inputs": [
+        {
+          "Id": "7c64d6609f81436e9366c51b97dd42fb",
+          "Name": "room",
+          "Description": "Revit.Elements.Room",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "bc96ee2523b94857b6647b7031f70073",
+          "Name": "string",
+          "Description": "string",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "룸 이름 가져오기\n\nRoom.Name: string"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.Room.Number",
+      "Id": "f0c7e42094184d4d8e24782ff3e6a1a7",
+      "Inputs": [
+        {
+          "Id": "0426a5e2a18144f5a76dc561d36a713b",
+          "Name": "room",
+          "Description": "Revit.Elements.Room",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "1921e27e53354bdd8b75256d2e95291b",
+          "Name": "string",
+          "Description": "string",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "룸 번호 가져오기\n\nRoom.Number: string"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Watch, CoreNodeModels",
+      "NodeType": "ExtensionNode",
+      "Id": "d23ba437290a418b9e6dfb6a2748e823",
+      "Inputs": [
+        {
+          "Id": "858c117e2fd74b4f8a0f836e44885136",
+          "Name": "",
+          "Description": "출력을 표시할 노드",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "cf4c1f0a3b4749d9adeeabad2a72451b",
+          "Name": "",
+          "Description": "노드 출력",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "노드의 출력을 시각화합니다."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.List.Transpose@var[]..[]",
+      "Id": "3535e1286fce4676ab41be2f8f005dad",
+      "Inputs": [
+        {
+          "Id": "f483502f838146598368a50a23bdd241",
+          "Name": "lists",
+          "Description": "행과 열을 바꿀 리스트의 리스트.\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "efef23bdef5f4fa3b620a6c1f3de3d9a",
+          "Name": "lists",
+          "Description": "행과 열을 바꾼 리스트의 리스트.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "리스트의 리스트에서 행 및 열을 교체합니다. 다른 행보다 짧은 행이 몇 개 있을 경우 null 값이 결과 배열에 자리 표시자로 삽입되어 항상 직사각형이 되도록 합니다.\n\nList.Transpose (lists: var[]..[]): var[]..[]"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.CreateList, CoreNodeModels",
+      "VariableInputPorts": true,
+      "NodeType": "ExtensionNode",
+      "Id": "44caa4cfa2794ae1a79a48801f7d4b9d",
+      "Inputs": [
+        {
+          "Id": "4b375c33072542509cd2e58e4350f427",
+          "Name": "item0",
+          "Description": "항목 인덱스 #0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "473a56e3df5d480585d659f3d1ad3d78",
+          "Name": "item1",
+          "Description": "항목 Index 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "f93b6e90737b4974ac894886f5b3dfe4",
+          "Name": "item2",
+          "Description": "항목 Index 2",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "f9821c76b5fb470d8cf0d0effc635c76",
+          "Name": "item3",
+          "Description": "항목 Index 3",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "b19b56feb7e84c3787e9ca0630d731a1",
+          "Name": "item4",
+          "Description": "항목 Index 4",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "cf02201e14de4572a20f2ee82c4ce256",
+          "Name": "item5",
+          "Description": "항목 Index 5",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "071d7c60f76c476fadfa06016ae3d521",
+          "Name": "item6",
+          "Description": "항목 Index 6",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "be22ee2e2fba451b8f941818f6a550d0",
+          "Name": "item7",
+          "Description": "항목 Index 7",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "518f89df59754bc7896e66ecb3e7ec3e",
+          "Name": "item8",
+          "Description": "항목 Index 8",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "5e94b6fcac9d451da80403e0dd878e19",
+          "Name": "item9",
+          "Description": "항목 Index 9",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "b0e066ba0e9e4f5fab629967ea581ae1",
+          "Name": "item10",
+          "Description": "항목 Index 10",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "040537bca5f4445c86fab372d16d2ebf",
+          "Name": "item11",
+          "Description": "항목 Index 11",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "786ccf5ade384e0797411b4b9fcb87e9",
+          "Name": "list",
+          "Description": "리스트(유형: var[]..[])",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "지정된 입력에서 새 리스트를 만듭니다"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.StringInput, CoreNodeModels",
+      "NodeType": "StringInputNode",
+      "InputValue": "label",
+      "Id": "0fc91c0317184d8196a73b8aeacf1aa7",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "00cfca9cff8945bdb023cdd80f8b98dc",
+          "Name": "",
+          "Description": "String",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "문자열을 작성합니다."
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.StringInput, CoreNodeModels",
+      "NodeType": "StringInputNode",
+      "InputValue": "room_number",
+      "Id": "65c9de2474374d199e835da909d32745",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "5002b63631f24d91aa81696239b22c8c",
+          "Name": "",
+          "Description": "String",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "문자열을 작성합니다."
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.StringInput, CoreNodeModels",
+      "NodeType": "StringInputNode",
+      "InputValue": "areas",
+      "Id": "76fbb7b7ba44490abfd8325f8f00d250",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "ba74f3e8fe454dbda6405ac2e3a55457",
+          "Name": "",
+          "Description": "String",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "문자열을 작성합니다."
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.StringInput, CoreNodeModels",
+      "NodeType": "StringInputNode",
+      "InputValue": "X",
+      "Id": "5f64f241602c4cadb7e14d3e6b2b60da",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "62229e8914ad4169b6d0c92371f08e20",
+          "Name": "",
+          "Description": "String",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "문자열을 작성합니다."
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.StringInput, CoreNodeModels",
+      "NodeType": "StringInputNode",
+      "InputValue": "perimeter",
+      "Id": "259a13f95eb14cc6a3a10887dec6e9aa",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "d47ceac1b3ab4cbaa1d18718cc03e42b",
+          "Name": "",
+          "Description": "String",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "문자열을 작성합니다."
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.StringInput, CoreNodeModels",
+      "NodeType": "StringInputNode",
+      "InputValue": "volumes",
+      "Id": "8998f971b76b432997bfcee6d017a31a",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "6cb98539e79d4902b73300e28b1d85fd",
+          "Name": "",
+          "Description": "String",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "문자열을 작성합니다."
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.StringInput, CoreNodeModels",
+      "NodeType": "StringInputNode",
+      "InputValue": "aspect_ratio",
+      "Id": "74754d5c48f3482d8d464d5cd9fd8440",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "ba806d62a7dd4b2c9a76b3a8f4dd3f7e",
+          "Name": "",
+          "Description": "String",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "문자열을 작성합니다."
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.StringInput, CoreNodeModels",
+      "NodeType": "StringInputNode",
+      "InputValue": "Z",
+      "Id": "f8cb11239e574de387bb42f7e00f2b5a",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "4a3b099b922f4392840da29163128e40",
+          "Name": "",
+          "Description": "String",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "문자열을 작성합니다."
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.StringInput, CoreNodeModels",
+      "NodeType": "StringInputNode",
+      "InputValue": "Y",
+      "Id": "0c53bf987eb5467d8c712100f1a8281d",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "b8f6abb344344c31ba75d82562a103d2",
+          "Name": "",
+          "Description": "String",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "문자열을 작성합니다."
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.StringInput, CoreNodeModels",
+      "NodeType": "StringInputNode",
+      "InputValue": "ax1s",
+      "Id": "f0051789eb7d4c95a48a0307ed2a6e2b",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "c89cabd5837843e382e22bf5e9e69705",
+          "Name": "",
+          "Description": "String",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "문자열을 작성합니다."
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.StringInput, CoreNodeModels",
+      "NodeType": "StringInputNode",
+      "InputValue": "surface_areas",
+      "Id": "1dfd8ee88d7f45b2bf9d88d25867772a",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "d61272650e654d6badbac9a2fcd6ccf8",
+          "Name": "",
+          "Description": "String",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "문자열을 작성합니다."
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.StringInput, CoreNodeModels",
+      "NodeType": "StringInputNode",
+      "InputValue": "boundary_line",
+      "Id": "c318a48349a94f998fa6e4b0d90ed3d2",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "98ca273e66634e548b5ff27b48bc7e51",
+          "Name": "",
+          "Description": "String",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "문자열을 작성합니다."
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.StringInput, CoreNodeModels",
+      "NodeType": "StringInputNode",
+      "InputValue": "space_id",
+      "Id": "2970096d83654c9cbd1b1b78fff837e4",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "df64a019344e4619aadb9278c86714b0",
+          "Name": "",
+          "Description": "String",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "문자열을 작성합니다."
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Watch, CoreNodeModels",
+      "NodeType": "ExtensionNode",
+      "Id": "1e52988761f143d18e4cee82c6856520",
+      "Inputs": [
+        {
+          "Id": "96833d9246034519a7b681174775dd88",
+          "Name": "",
+          "Description": "출력을 표시할 노드",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "93b6eace5241440c815ad332e4cc5860",
+          "Name": "",
+          "Description": "노드 출력",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "노드의 출력을 시각화합니다."
+    },
+    {
+      "ConcreteType": "PythonNodeModels.PythonNode, PythonNodeModels",
+      "NodeType": "PythonScriptNode",
+      "Code": "import clr\n\n# Import RevitAPI\nclr.AddReference(\"RevitAPI\")\nimport Autodesk\n\nclr.AddReference(\"RevitNodes\")\nimport Revit\n\n# Import DocumentManager and TransactionManager\nclr.AddReference(\"RevitServices\")\nimport RevitServices\nfrom RevitServices.Persistence import DocumentManager\nfrom RevitServices.Transactions import TransactionManager\n\n# Import geometry conversion extension methods\nclr.ImportExtensions(Revit.GeometryConversion)\n\n# Import Element wrapper extension methods\nclr.ImportExtensions(Revit.Elements)\n\n# Unwrap the Point, yielding a Revit XYZ in Revit unit system\n\ndef toRvtId(_id):\n\tif isinstance(_id, int) or isinstance(_id, str):\n\t\tid = Autodesk.Revit.DB.ElementId(int(_id))\n\t\treturn id\n\telif isinstance(_id, Autodesk.Revit.DB.ElementId):\n\t\treturn _id\nelement = UnwrapElement(IN[0])\nID = []\nGUID = []\nfor i in element:\n\tGUID.append(i.UniqueId)\n#for i in IN[0]:\n#\ta = toRvtId(i)\n#\tID.append(a)\n\nOUT = GUID",
+      "Engine": "CPython3",
+      "VariableInputPorts": true,
+      "Id": "fe41a6c33eaa417c874148bfdbde59d8",
+      "Inputs": [
+        {
+          "Id": "b996d5544aa64619a1f1f6da2826b92c",
+          "Name": "IN[0]",
+          "Description": "Input #0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "4246703f00c24f42b8d8e996c7f5a52b",
+          "Name": "OUT",
+          "Description": "Python 스크립트의 결과",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "포함된 Python 스크립트를 실행합니다."
+    },
+    {
+      "ConcreteType": "CoreNodeModels.CreateList, CoreNodeModels",
+      "VariableInputPorts": true,
+      "NodeType": "ExtensionNode",
+      "Id": "5436161dd7ba4907808ec4bd59242dfd",
+      "Inputs": [
+        {
+          "Id": "0e49dc02e1834f949a2f16472d8e6fa1",
+          "Name": "item0",
+          "Description": "항목 인덱스 #0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "61b190994e26457faae76d3d39f26dd5",
+          "Name": "item1",
+          "Description": "항목 Index 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "4895b415459f4f1b98f23343c31a7973",
+          "Name": "item2",
+          "Description": "항목 Index 2",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "eb380879a954498384aa97fda4783ed9",
+          "Name": "item3",
+          "Description": "항목 Index 3",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "cfdc78ba79744fb1b306843248b32c07",
+          "Name": "item4",
+          "Description": "항목 Index 4",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "610b78705d214e7788432690f2a363de",
+          "Name": "item5",
+          "Description": "항목 Index 5",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "aa8b42a44dd3431a9f26db2b11504410",
+          "Name": "item6",
+          "Description": "항목 Index 6",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "63fad9b637c046a9ae58c258c85973ab",
+          "Name": "item7",
+          "Description": "항목 Index 7",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "83922f58011e4933a69055d6436a564b",
+          "Name": "item8",
+          "Description": "항목 Index 8",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "e063b03c604949d0b379d227f462e88c",
+          "Name": "item9",
+          "Description": "항목 Index 9",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "d0235755631a4f569092a3bab40f55d7",
+          "Name": "item10",
+          "Description": "항목 Index 10",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "f34218f96fbd4f208fa6c81ecb9b841b",
+          "Name": "list",
+          "Description": "리스트(유형: var[]..[])",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "지정된 입력에서 새 리스트를 만듭니다"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.StringInput, CoreNodeModels",
+      "NodeType": "StringInputNode",
+      "InputValue": "AD/PD",
+      "Id": "099f77aec3b14f5eb0e68ed326e40cc6",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "a19fa96971014030bcdefe05476bda1d",
+          "Name": "",
+          "Description": "String",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "문자열을 작성합니다."
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.StringInput, CoreNodeModels",
+      "NodeType": "StringInputNode",
+      "InputValue": "Balcony",
+      "Id": "2b65415cfd8d4848a8851711d09eb8f9",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "2801d1d288bb4c8da8571317cb3edb9a",
+          "Name": "",
+          "Description": "String",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "문자열을 작성합니다."
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.StringInput, CoreNodeModels",
+      "NodeType": "StringInputNode",
+      "InputValue": "Bathroom",
+      "Id": "9af78793a3dc434ba0ae666b98fb4dc6",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "f393f701294348f3ba01c0bb9ea9eae3",
+          "Name": "",
+          "Description": "String",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "문자열을 작성합니다."
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.StringInput, CoreNodeModels",
+      "NodeType": "StringInputNode",
+      "InputValue": "Entrance",
+      "Id": "a2a178067e62453a9b35c0517ab2b2b1",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "f08a05d2dcbc49e3b5fcc3c5b6e8cad3",
+          "Name": "",
+          "Description": "String",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "문자열을 작성합니다."
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.StringInput, CoreNodeModels",
+      "NodeType": "StringInputNode",
+      "InputValue": "Dressing room",
+      "Id": "a9b75247efc645948ccf16459fa2feba",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "8b79e2cb04784f1387b375b5eb9f4517",
+          "Name": "",
+          "Description": "String",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "문자열을 작성합니다."
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.StringInput, CoreNodeModels",
+      "NodeType": "StringInputNode",
+      "InputValue": "Bedroom",
+      "Id": "49a7e1ed670a47b490d1b1eb0cdea463",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "d0b9693cbe734714b1ef5c308c7535f7",
+          "Name": "",
+          "Description": "String",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "문자열을 작성합니다."
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.StringInput, CoreNodeModels",
+      "NodeType": "StringInputNode",
+      "InputValue": "Storage",
+      "Id": "f05e7c8bf6474e9a866e4d2f6cfb859f",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "d948bf89ee3c4acba9aa9969f140d274",
+          "Name": "",
+          "Description": "String",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "문자열을 작성합니다."
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.StringInput, CoreNodeModels",
+      "NodeType": "StringInputNode",
+      "InputValue": "Kitchen",
+      "Id": "01e8bb70f06f402da57fdb343c3aa037",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "caf3bb74b43945e1899375aad07e134c",
+          "Name": "",
+          "Description": "String",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "문자열을 작성합니다."
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.StringInput, CoreNodeModels",
+      "NodeType": "StringInputNode",
+      "InputValue": "Evacuation room",
+      "Id": "39d27be35ea74c35b96da10fa488ae15",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "d43f5f886a454c39b02a77352a7450c0",
+          "Name": "",
+          "Description": "String",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "문자열을 작성합니다."
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.StringInput, CoreNodeModels",
+      "NodeType": "StringInputNode",
+      "InputValue": "Hallway",
+      "Id": "b124ba838fc0479fabd91dc32b73c8b6",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "0267e6045ce241d193b55398848fbfb2",
+          "Name": "",
+          "Description": "String",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "문자열을 작성합니다."
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.StringInput, CoreNodeModels",
+      "NodeType": "StringInputNode",
+      "InputValue": "Living room",
+      "Id": "32f46fe863ab48789427dacba3ab536d",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "d6a3c78d502b41bc96ea61ffe54a77ef",
+          "Name": "",
+          "Description": "String",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "문자열을 작성합니다."
+    },
+    {
+      "ConcreteType": "CoreNodeModels.DynamoConvert, CoreNodeModels",
+      "NodeType": "ConvertBetweenUnitsNode",
+      "MeasurementType": "Area",
+      "FromConversion": "SquareMillimeter",
+      "ToConversion": "SquareMeter",
+      "Id": "810b3f41348143eb8c7e75eaeac59ca9",
+      "Inputs": [
+        {
+          "Id": "4d3a6fdf271c447f877a1f5d36edfa7b",
+          "Name": "",
+          "Description": "변환할 숫자 값.",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "6638b4b702a94b508aa2ba9fcb8b25d7",
+          "Name": "",
+          "Description": "변환된 숫자 값.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "측정 단위 사이를 변환합니다."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSOffice.Data.ExportExcel@string,string,int,int,var[][],bool",
+      "Id": "a655023221d2423ead49a3aa20f4dcbb",
+      "Inputs": [
+        {
+          "Id": "a9c519cb39a74bfdbb6b961d4823efcd",
+          "Name": "filePath",
+          "Description": "Microsoft Excel 스프레드시트의 파일 경로.\n\nstring",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "78c15abcb1f844238f7529e270604f9b",
+          "Name": "sheetName",
+          "Description": "데이터를 쓸 워크시트의 이름.\n\nstring",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "9a4784ee6a70455f90d8052be2e3e1fd",
+          "Name": "startRow",
+          "Description": "데이터를 쓸 시작 행입니다. 행1에 0을, 행2에 1를 입력하는 식으로 입력합니다.\n\nint",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "5b277599590447a790e8df9b711fb9ca",
+          "Name": "startCol",
+          "Description": "데이터를 쓸 시작 열입니다. 열A에 0을, 열B에 1을 입력하는 식으로 입력합니다.\n\nint",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "5ef520c0728c466199c54d6ad5df9f9c",
+          "Name": "data",
+          "Description": "스프레드시트에 쓸 데이터.\n\nvar[][]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "bfe5534ca3384591b0d7bb363e482149",
+          "Name": "overWrite",
+          "Description": "bool\n기본값 : false",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "6aa50e4465a040b4841968f6d5b8db2b",
+          "Name": "data",
+          "Description": "스프레드시트에 쓴 데이터.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Microsoft Excel 스프레드시트에 데이터를 씁니다. 데이터는 하위 리스트가 있는 행으로 쓰이고 연속 행으로 쓰입니다. 행 및 열은 0 인덱스입니다. 예를 들어, 데이터 리스트의 [0,0]에 있는 값은 셀 A1에 쓰입니다. Null 값과 빈 리스트는 Excel에 빈 셀로 쓰입니다. 이 노드를 사용하려면 Microsoft Excel이 설치되어 있어야 합니다.\n\nData.ExportExcel (filePath: string, sheetName: string, startRow: int, startCol: int, data: var[][], overWrite: bool = false): var[][]"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.StringInput, CoreNodeModels",
+      "NodeType": "StringInputNode",
+      "InputValue": "Features",
+      "Id": "1d8da01c855046d18b9f16f8a703eb0b",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "de6337e2c5644ec9bb9be782af9c541b",
+          "Name": "",
+          "Description": "String",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "문자열을 작성합니다."
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.StringInput, CoreNodeModels",
+      "NodeType": "StringInputNode",
+      "InputValue": "C:\\Users/JINHYEOK/Desktop/test1.xlsx",
+      "Id": "faba6a37f1164cc3acf203f6d5eeab97",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "2fec69cf5db24472b7a7d251ff9761ab",
+          "Name": "",
+          "Description": "String",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "문자열을 작성합니다."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "0;",
+      "Id": "c1c14d7ba9e749868f9c400acd65f5d7",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "64dcf4c262b84ac4aad1247c834a3986",
+          "Name": "",
+          "Description": "선 1의 표현식 값",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "DesignScript 코드를 직접 작성할 수 있습니다"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.DynamoConvert, CoreNodeModels",
+      "NodeType": "ConvertBetweenUnitsNode",
+      "MeasurementType": "Length",
+      "FromConversion": "Millimeters",
+      "ToConversion": "Meters",
+      "Id": "6ba58e59232740878afce19e0c00d2be",
+      "Inputs": [
+        {
+          "Id": "72bf1c018f934dbf96f8c438a1051980",
+          "Name": "",
+          "Description": "변환할 숫자 값.",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "c4172667be554fe68976905ca9b33833",
+          "Name": "",
+          "Description": "변환된 숫자 값.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "측정 단위 사이를 변환합니다."
+    },
+    {
+      "ConcreteType": "CoreNodeModels.DynamoConvert, CoreNodeModels",
+      "NodeType": "ConvertBetweenUnitsNode",
+      "MeasurementType": "Length",
+      "FromConversion": "Millimeters",
+      "ToConversion": "Meters",
+      "Id": "d90780a1d6844e40bf6117e1bd2aad9d",
+      "Inputs": [
+        {
+          "Id": "51530157b4cb42498d907b04df5aba6d",
+          "Name": "",
+          "Description": "변환할 숫자 값.",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "1487ddc62f3b43269a9fab5ec6808010",
+          "Name": "",
+          "Description": "변환된 숫자 값.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "측정 단위 사이를 변환합니다."
+    },
+    {
+      "ConcreteType": "CoreNodeModels.DynamoConvert, CoreNodeModels",
+      "NodeType": "ConvertBetweenUnitsNode",
+      "MeasurementType": "Length",
+      "FromConversion": "Millimeters",
+      "ToConversion": "Meters",
+      "Id": "273994b10a714d63b4cb692e9650ab4f",
+      "Inputs": [
+        {
+          "Id": "e4f1778a43a942deb020939bfa05c196",
+          "Name": "",
+          "Description": "변환할 숫자 값.",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "741a5cb89b294610a7b3b0ad19110c93",
+          "Name": "",
+          "Description": "변환된 숫자 값.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "측정 단위 사이를 변환합니다."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "DSCore.Math.Round(n,3);",
+      "Id": "51c697d9de5e48cfa4206923bde8d3b4",
+      "Inputs": [
+        {
+          "Id": "4891e5f79eee4adf941b251b34d1e6f2",
+          "Name": "n",
+          "Description": "n",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "48954ee0e4054ae488f5d9f5888052c8",
+          "Name": "",
+          "Description": "선 1의 표현식 값",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "DesignScript 코드를 직접 작성할 수 있습니다"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Cuboid.Height",
+      "Id": "95d542a4b39e4b778976960c57887380",
+      "Inputs": [
+        {
+          "Id": "ef781a0f3d334e05a7a568b89cf9fc36",
+          "Name": "cuboid",
+          "Description": "Autodesk.DesignScript.Geometry.Cuboid",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "3859986ecabc423b9273ec2d5286ea5b",
+          "Name": "double",
+          "Description": "double",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "높이 거리를 반환합니다. 주: 이 함수는 실제 표준 공간 치수가 아니라 직육면체의 입력 치수를 반환합니다. 다시 말해, 폭(X축) 길이가 10인 직육면체를 만들어 X 축척을 두 배로 하여 CoordinateSystem으로 변환해도 폭은 여전히 10입니다. ASM에서는 예측 가능한 순서로 본체의 정점을 추출할 수 없으므로 변환 후 치수를 결정할 수 없습니다.\n\nCuboid.Height: double"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.DynamoConvert, CoreNodeModels",
+      "NodeType": "ConvertBetweenUnitsNode",
+      "MeasurementType": "Length",
+      "FromConversion": "Millimeters",
+      "ToConversion": "Meters",
+      "Id": "1ec2efeb230f464ba28dc18eda702db3",
+      "Inputs": [
+        {
+          "Id": "97f068cbf1864dd09c5d9f9f14926750",
+          "Name": "",
+          "Description": "변환할 숫자 값.",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "729ba1096d5549ab84cc98340a95e9f7",
+          "Name": "",
+          "Description": "변환된 숫자 값.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "측정 단위 사이를 변환합니다."
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "32136c952c034740b2c1e6a734f27684",
+      "End": "dba09992cd3d4d2dbf5a0c85c82ebdaa",
+      "Id": "08b7cbf4916f471db5bc721b8f6cdea4"
+    },
+    {
+      "Start": "32136c952c034740b2c1e6a734f27684",
+      "End": "aabf9d8ef0474128adb0fad188a7d5a7",
+      "Id": "5e44ed85f7334a2294c464f9376a72bb"
+    },
+    {
+      "Start": "32136c952c034740b2c1e6a734f27684",
+      "End": "4b7731dfd5da4b51bda90ef2a6bd7ba9",
+      "Id": "7baba36bcf7b4dde88b76d89d0c7ecaf"
+    },
+    {
+      "Start": "32136c952c034740b2c1e6a734f27684",
+      "End": "074404f18b524a85b1f02d082cb68795",
+      "Id": "090843003bfc46718d308bbba5816249"
+    },
+    {
+      "Start": "32136c952c034740b2c1e6a734f27684",
+      "End": "97f2239bc21d4e498fbace62d6797586",
+      "Id": "7d763a78c10448528c604988f602fb8f"
+    },
+    {
+      "Start": "32136c952c034740b2c1e6a734f27684",
+      "End": "7c64d6609f81436e9366c51b97dd42fb",
+      "Id": "a6c069cc9cb144c7a5ace8cd069944d6"
+    },
+    {
+      "Start": "32136c952c034740b2c1e6a734f27684",
+      "End": "0426a5e2a18144f5a76dc561d36a713b",
+      "Id": "14befa27fe0a4d039180b15670ad3a0b"
+    },
+    {
+      "Start": "32136c952c034740b2c1e6a734f27684",
+      "End": "b996d5544aa64619a1f1f6da2826b92c",
+      "Id": "b6c79b60bbde47d39afcaf2a88662634"
+    },
+    {
+      "Start": "949e12ae3754449b8c7766afd86e06ae",
+      "End": "7e8148d2b29d4290948b7428c46127b8",
+      "Id": "85ba844b90fc4f05bc5890c8a8cd76f9"
+    },
+    {
+      "Start": "2169a8a563dc4eb88823de5e66ccc34d",
+      "End": "ba2d806382074b23b8ef77a49f34546b",
+      "Id": "abd6a3cae9bd4492b158253abac2e469"
+    },
+    {
+      "Start": "68393bbf34f4446087a7ab780ac2aa86",
+      "End": "2f61eab24fff495d864d0ae3e416dcb8",
+      "Id": "50d1048ec5a0405086fd8382eeff517a"
+    },
+    {
+      "Start": "32a3fbf356904322bfe4b42d2c9136aa",
+      "End": "b56cecb947e64c3f8d2731c8f370b262",
+      "Id": "f9d6eee1e0294ee69ce45c993b93f7d5"
+    },
+    {
+      "Start": "32a3fbf356904322bfe4b42d2c9136aa",
+      "End": "e362e19810884b09bba013d15c88d69f",
+      "Id": "051e5303d0e64054ac2ff6de0f71a426"
+    },
+    {
+      "Start": "1814a30d42d647df87c1754dd1e9d821",
+      "End": "da278c1f51774720bfb72422c36aeb9f",
+      "Id": "78704ecf929a4b9eb5de6962e7819824"
+    },
+    {
+      "Start": "eaa9938a7eb74f0b895c7c106ff7a98a",
+      "End": "e5aac83e546244d7a86efc3b79dd197d",
+      "Id": "6c41c0b4fb3140009cfe559beca10c64"
+    },
+    {
+      "Start": "eaa9938a7eb74f0b895c7c106ff7a98a",
+      "End": "1da110daebe940a1ba90820c4e83864e",
+      "Id": "82f4a461ba6645e9878aa4c692f44fc4"
+    },
+    {
+      "Start": "cd0126667f1341f9a3a369a40beba149",
+      "End": "97f068cbf1864dd09c5d9f9f14926750",
+      "Id": "5e72b41d11094c8cbe47a81e9f24a6fd"
+    },
+    {
+      "Start": "efcdc15831a34f95a82d5f011179987c",
+      "End": "0098ede221fe4477a9edece1f18b4f2e",
+      "Id": "a48cd55028c340c0bf9ad0cf3da6cd49"
+    },
+    {
+      "Start": "e0007d8f4deb40b29e59b9217dc591b8",
+      "End": "d089cf82090b4bc0a28353c53ff76939",
+      "Id": "a52c3ec8022648b3bcd5a46b7458045b"
+    },
+    {
+      "Start": "2b669b2b7e6e41fc956992bc31a59084",
+      "End": "319d037c222940289e0695808e08a544",
+      "Id": "903a84c4a9254ea18989b9ba365e1437"
+    },
+    {
+      "Start": "7a6299b5df1b4c919e1c97531b446c91",
+      "End": "7cd57d9c099b425e80433e02b4cdcdfa",
+      "Id": "7fb2891b7f02410c8d679e86ad4ba556"
+    },
+    {
+      "Start": "715644b017184cf3aa553d4543c56409",
+      "End": "ea5be1c1a8b74e31a1737a1e9cac9133",
+      "Id": "789a51bd80094ca79dda27981f7424ec"
+    },
+    {
+      "Start": "715644b017184cf3aa553d4543c56409",
+      "End": "a34fdf440cff4f42892ce9f7cc0ba4f3",
+      "Id": "7cc7559ccc914ef8b98579d666441f01"
+    },
+    {
+      "Start": "715644b017184cf3aa553d4543c56409",
+      "End": "ef781a0f3d334e05a7a568b89cf9fc36",
+      "Id": "87f1a21a0e364c1a8690923a96cf44d2"
+    },
+    {
+      "Start": "d8345ec8b4db4d47af4597c7d4ba94bd",
+      "End": "51530157b4cb42498d907b04df5aba6d",
+      "Id": "9ba384789eb349f49b4392b5af048871"
+    },
+    {
+      "Start": "3c87ea76153741e2b6a791935800e8fe",
+      "End": "72bf1c018f934dbf96f8c438a1051980",
+      "Id": "97abf97b47204124b0997d931f0bec4e"
+    },
+    {
+      "Start": "ff1e1eac80cb4ce49a80299fc2f8554b",
+      "End": "f1d3110e900245ef8e18ccbbc43e85d9",
+      "Id": "0579b80d149e4d96b8aaa8980f64f2e7"
+    },
+    {
+      "Start": "ff1e1eac80cb4ce49a80299fc2f8554b",
+      "End": "75c5d4319f6e4d1ba9f7d1a8b5e17b4f",
+      "Id": "95e559e64b234e9ebb86ab4baf150036"
+    },
+    {
+      "Start": "42f64df32c3a419ab2c8236243bd8a41",
+      "End": "dd4612717f8a45638eac247d5688d8ac",
+      "Id": "69a1c57e76f94a508e11d29bec699c03"
+    },
+    {
+      "Start": "42f64df32c3a419ab2c8236243bd8a41",
+      "End": "350d8670037d44899e894810688ae56e",
+      "Id": "3163ba6b466c4e3bbfb6fea7a593a053"
+    },
+    {
+      "Start": "14c4c1b35b984fedb616a6ef32b54d0d",
+      "End": "3aae8a09064f419a8ccf0d998114c929",
+      "Id": "58cf854d36494ae5b51061ab15ce38f7"
+    },
+    {
+      "Start": "00bd3a83c7f24134b11d0b25b4884125",
+      "End": "858c117e2fd74b4f8a0f836e44885136",
+      "Id": "7fa9ee08aa4d4df08dc2e52b4989a6da"
+    },
+    {
+      "Start": "51d594f5ddef4dbb9b5a6ca2e21ea104",
+      "End": "08f75ec9bc04412fbd79451708b98cb7",
+      "Id": "daff811a966740e09418d49f11891abf"
+    },
+    {
+      "Start": "764d2594f34442bbb988536acb032e9c",
+      "End": "78a4a35108b1484c8e7b514214ca6702",
+      "Id": "d3f5c0942d534bcebbcb50e7ec3c3f01"
+    },
+    {
+      "Start": "36a4d9a586ab43919656c8b3a63c053b",
+      "End": "4d3a6fdf271c447f877a1f5d36edfa7b",
+      "Id": "51f78b24f1a8455084a148c9ac62e610"
+    },
+    {
+      "Start": "da5c51040a744af49847ab9a94b00191",
+      "End": "2571f75d1afc4eafb157c88779156091",
+      "Id": "fa56262287764ab0b6725ced53a0ce18"
+    },
+    {
+      "Start": "71fdeef487c342f8b6855ffde929436e",
+      "End": "0f405a4f5aeb48f090ce7e4c1439977c",
+      "Id": "b3c67ce8a2474f5bb7b31b00650fe3fa"
+    },
+    {
+      "Start": "71fdeef487c342f8b6855ffde929436e",
+      "End": "0b0762f8a8154d9e980cc5f1b9693fe5",
+      "Id": "dcd9767e1c144bcf82671a77c30ba94b"
+    },
+    {
+      "Start": "9c0e43cf51cd42c4bda490f92de3cd87",
+      "End": "7637534d7e5849a29f0029a2dcdb2d2f",
+      "Id": "97f21d88aa57437f967a81d51c87d78d"
+    },
+    {
+      "Start": "bc96ee2523b94857b6647b7031f70073",
+      "End": "a52e7d9e7130402fa85943b675afdaea",
+      "Id": "dba9d334e46748b8baee8e3ae390f68e"
+    },
+    {
+      "Start": "cf4c1f0a3b4749d9adeeabad2a72451b",
+      "End": "f483502f838146598368a50a23bdd241",
+      "Id": "b5a4c09a08844cb187d680e855824d8b"
+    },
+    {
+      "Start": "efef23bdef5f4fa3b620a6c1f3de3d9a",
+      "End": "5ef520c0728c466199c54d6ad5df9f9c",
+      "Id": "f9095fca7a3e49f89f3f9faa8aa6671b"
+    },
+    {
+      "Start": "786ccf5ade384e0797411b4b9fcb87e9",
+      "End": "96833d9246034519a7b681174775dd88",
+      "Id": "7bd7423a19f24c9a83c450f9011fb1a7"
+    },
+    {
+      "Start": "00cfca9cff8945bdb023cdd80f8b98dc",
+      "End": "473a56e3df5d480585d659f3d1ad3d78",
+      "Id": "92427cd14f4f4bf4aad7d616addcfbf7"
+    },
+    {
+      "Start": "ba74f3e8fe454dbda6405ac2e3a55457",
+      "End": "f93b6e90737b4974ac894886f5b3dfe4",
+      "Id": "c60277c8565d4451ad974ab240e00cc6"
+    },
+    {
+      "Start": "62229e8914ad4169b6d0c92371f08e20",
+      "End": "cf02201e14de4572a20f2ee82c4ce256",
+      "Id": "5e4ec1e8e4224f1a9ce33baf82b97da6"
+    },
+    {
+      "Start": "d47ceac1b3ab4cbaa1d18718cc03e42b",
+      "End": "b19b56feb7e84c3787e9ca0630d731a1",
+      "Id": "2e18d47d01ab4d068a5a7234eba40377"
+    },
+    {
+      "Start": "6cb98539e79d4902b73300e28b1d85fd",
+      "End": "f9821c76b5fb470d8cf0d0effc635c76",
+      "Id": "8bd1a382eaaa4623ae2bb296da9094a7"
+    },
+    {
+      "Start": "ba806d62a7dd4b2c9a76b3a8f4dd3f7e",
+      "End": "518f89df59754bc7896e66ecb3e7ec3e",
+      "Id": "1bf4c71789c64259a0ad368efb8bd452"
+    },
+    {
+      "Start": "4a3b099b922f4392840da29163128e40",
+      "End": "be22ee2e2fba451b8f941818f6a550d0",
+      "Id": "8d5f2d1894a24a22ad4dc2c3296fe5ab"
+    },
+    {
+      "Start": "b8f6abb344344c31ba75d82562a103d2",
+      "End": "071d7c60f76c476fadfa06016ae3d521",
+      "Id": "47d73704c3164d5a8b85f6114efc69ac"
+    },
+    {
+      "Start": "c89cabd5837843e382e22bf5e9e69705",
+      "End": "040537bca5f4445c86fab372d16d2ebf",
+      "Id": "7f55e7821c5940b8b554e51194c65437"
+    },
+    {
+      "Start": "d61272650e654d6badbac9a2fcd6ccf8",
+      "End": "b0e066ba0e9e4f5fab629967ea581ae1",
+      "Id": "884f9606e49a45dbb439077b30ee3722"
+    },
+    {
+      "Start": "98ca273e66634e548b5ff27b48bc7e51",
+      "End": "5e94b6fcac9d451da80403e0dd878e19",
+      "Id": "84b64cee0a684262810177d2fd6c25a8"
+    },
+    {
+      "Start": "df64a019344e4619aadb9278c86714b0",
+      "End": "4b375c33072542509cd2e58e4350f427",
+      "Id": "53ea1a12275348828dd44803c5484f5b"
+    },
+    {
+      "Start": "4246703f00c24f42b8d8e996c7f5a52b",
+      "End": "43a568ce24ff454794fe123bb4f4c36f",
+      "Id": "702a07b972394e7298a9440999d33635"
+    },
+    {
+      "Start": "a19fa96971014030bcdefe05476bda1d",
+      "End": "0e49dc02e1834f949a2f16472d8e6fa1",
+      "Id": "e9c13b0d47834268817606d1f200de8e"
+    },
+    {
+      "Start": "2801d1d288bb4c8da8571317cb3edb9a",
+      "End": "61b190994e26457faae76d3d39f26dd5",
+      "Id": "5ead538167684acc81dd6d80e971eb66"
+    },
+    {
+      "Start": "f393f701294348f3ba01c0bb9ea9eae3",
+      "End": "4895b415459f4f1b98f23343c31a7973",
+      "Id": "9e2a2bea9e114aa9b9eeb52ae2951585"
+    },
+    {
+      "Start": "f08a05d2dcbc49e3b5fcc3c5b6e8cad3",
+      "End": "610b78705d214e7788432690f2a363de",
+      "Id": "bbe074f521144bcc924424db3899eaca"
+    },
+    {
+      "Start": "8b79e2cb04784f1387b375b5eb9f4517",
+      "End": "cfdc78ba79744fb1b306843248b32c07",
+      "Id": "78cd243a3a5f4e0a83ef3b24cd6df2da"
+    },
+    {
+      "Start": "d0b9693cbe734714b1ef5c308c7535f7",
+      "End": "eb380879a954498384aa97fda4783ed9",
+      "Id": "66fc7c51da954493b5521eb8999f6287"
+    },
+    {
+      "Start": "d948bf89ee3c4acba9aa9969f140d274",
+      "End": "e063b03c604949d0b379d227f462e88c",
+      "Id": "72f8db30e51c4a879761d481178b4244"
+    },
+    {
+      "Start": "caf3bb74b43945e1899375aad07e134c",
+      "End": "63fad9b637c046a9ae58c258c85973ab",
+      "Id": "c66f8d0a213745289d9b49101b1d5fc0"
+    },
+    {
+      "Start": "d43f5f886a454c39b02a77352a7450c0",
+      "End": "aa8b42a44dd3431a9f26db2b11504410",
+      "Id": "36bb5ddb25534091889020daac7cc556"
+    },
+    {
+      "Start": "0267e6045ce241d193b55398848fbfb2",
+      "End": "d0235755631a4f569092a3bab40f55d7",
+      "Id": "7892ff0d45c54c3aa2aa51e8153698ef"
+    },
+    {
+      "Start": "d6a3c78d502b41bc96ea61ffe54a77ef",
+      "End": "83922f58011e4933a69055d6436a564b",
+      "Id": "08ae168581744edc892411161efb8625"
+    },
+    {
+      "Start": "6638b4b702a94b508aa2ba9fcb8b25d7",
+      "End": "86106ceef4744f0e9b4ad79f4b104855",
+      "Id": "2435c13fb9d64aa19e4e1dc5932a8349"
+    },
+    {
+      "Start": "de6337e2c5644ec9bb9be782af9c541b",
+      "End": "78c15abcb1f844238f7529e270604f9b",
+      "Id": "4ea3db1edc234b20b67b5fe964d00456"
+    },
+    {
+      "Start": "2fec69cf5db24472b7a7d251ff9761ab",
+      "End": "a9c519cb39a74bfdbb6b961d4823efcd",
+      "Id": "9958f9250b8a42c3b683ac4a7eb3bc2e"
+    },
+    {
+      "Start": "64dcf4c262b84ac4aad1247c834a3986",
+      "End": "9a4784ee6a70455f90d8052be2e3e1fd",
+      "Id": "046a6053152c4278b387dd2f6b8faa65"
+    },
+    {
+      "Start": "64dcf4c262b84ac4aad1247c834a3986",
+      "End": "5b277599590447a790e8df9b711fb9ca",
+      "Id": "31b160f7ad404bbb84bf9a87d41537a9"
+    },
+    {
+      "Start": "c4172667be554fe68976905ca9b33833",
+      "End": "1a9ac962ee8f4b7b81eea8f55ab3a9ca",
+      "Id": "547e22b89e6d4d4893dad2fe3960fdf8"
+    },
+    {
+      "Start": "1487ddc62f3b43269a9fab5ec6808010",
+      "End": "484cc2633d6448cd8cd1f628d4c5f53b",
+      "Id": "a3eb61c82a5a47b691b5ccccbc78fb41"
+    },
+    {
+      "Start": "741a5cb89b294610a7b3b0ad19110c93",
+      "End": "4891e5f79eee4adf941b251b34d1e6f2",
+      "Id": "0b60c8bdfa6c44d7bf4f397ffce61f56"
+    },
+    {
+      "Start": "48954ee0e4054ae488f5d9f5888052c8",
+      "End": "e63a5c70b7d74186baba495dadc372ff",
+      "Id": "1290caeca692497f8b164c1cfb71b316"
+    },
+    {
+      "Start": "3859986ecabc423b9273ec2d5286ea5b",
+      "End": "e4f1778a43a942deb020939bfa05c196",
+      "Id": "42ff5a41c9544ea68a8f341965f6fc0b"
+    },
+    {
+      "Start": "729ba1096d5549ab84cc98340a95e9f7",
+      "End": "0b36a7a102e54200976aa7b928618f7a",
+      "Id": "ab0a4f21a31042d29418661c8fd27699"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.10.1.3976",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "배경 미리보기",
+      "EyeX": -31084.44140625,
+      "EyeY": 87647.234375,
+      "EyeZ": 80068.578125,
+      "LookX": 32020.2421875,
+      "LookY": -84428.0390625,
+      "LookZ": -78504.7421875,
+      "UpX": 0.20292150974273682,
+      "UpY": 0.843391478061676,
+      "UpZ": -0.49750742316246033
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "All Elements of Category",
+        "Id": "91a6d89a5aed43d1834e5b89727503f5",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -2689.1513773942806,
+        "Y": -159.73505236959863
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Categories",
+        "Id": "0cb82f7be46f4dd2bda94d6e218656ab",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -2964.2735512689706,
+        "Y": -159.93545159116866
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Room.Area",
+        "Id": "6a046ff143bf4c27af446a005d3d18b3",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -1179.4587705213,
+        "Y": 676.240775212989
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "area",
+        "Id": "6a234d9f25e34004b491bdfca481d463",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -177.319060094832,
+        "Y": 681.795308370606
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Room.Volume",
+        "Id": "6939901244374af69fb8a7cc48b1720f",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -1172.15715959496,
+        "Y": 1128.15677299205
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "volume",
+        "Id": "63d781eb8f32408bbdc6ff53e106aeba",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -186.757459180676,
+        "Y": 1127.3819284622
+      },
+      {
+        "ShowGeometry": false,
+        "Name": "Room.CoreBoundary",
+        "Id": "a951137010364685a5d0138dfc3f240a",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -1271.52756407734,
+        "Y": 1581.3697183062
+      },
+      {
+        "ShowGeometry": false,
+        "Name": "Surface.Perimeter",
+        "Id": "48367a7c53cc4043aef4a17e73dd2c89",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -345.356433504476,
+        "Y": 1576.33767017045
+      },
+      {
+        "ShowGeometry": false,
+        "Name": "PolyCurve.ByJoinedCurves",
+        "Id": "213773e2e44d485a96ea4a03692c73fb",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -931.442828079666,
+        "Y": 1578.64718038943
+      },
+      {
+        "ShowGeometry": false,
+        "Name": "Surface.ByPatch",
+        "Id": "a0bdfad3ee574ce2acf298ab4562c817",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -622.51203162633,
+        "Y": 1576.84063154306
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "perimeter",
+        "Id": "681da51a43bc462fbbba0340abdda8a2",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 420.600430518468,
+        "Y": 1576.33631501711
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Element.BoundingBox",
+        "Id": "87dc31e0abaf4de6868143266945549c",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -1251.78194498719,
+        "Y": 2198.21598080805
+      },
+      {
+        "ShowGeometry": false,
+        "Name": "BoundingBox.ToCuboid",
+        "Id": "f91d93e216b9470181d27bc5fe93ec1d",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -890.516475670318,
+        "Y": 2195.46206846861
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Cuboid.Length",
+        "Id": "ac6513ae6e98446fbdf0aa4fd3c406cd",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -520.55500960081258,
+        "Y": 2311.3905420363858
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Cuboid.Width",
+        "Id": "826543badf88462db9dbeaa043e733a7",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -540.246519527669,
+        "Y": 2010.18040822001
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "X = width of boundingbox",
+        "Id": "6db252a84f7e45d1a6b9e8d1a8299f2f",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 211.74178199456117,
+        "Y": 2010.0955467659778
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Y = length of boundingbox",
+        "Id": "c695a4b024904e2199126699c06d2fec",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 217.49936484513353,
+        "Y": 2306.8410682081276
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "aspect ratio",
+        "Id": "d9ef63e78b9e45d5b199a45a673caf1c",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 295.21546957691862,
+        "Y": 3023.8414349234095
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "List Create",
+        "Id": "315abb6afc5a48dabe66bad63e99eaa3",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1263.4453022394468,
+        "Y": 2820.7714803903082
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "List.Count",
+        "Id": "8bb0e9c7dff34f329ab6f343b37881c1",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 292.70607976610904,
+        "Y": 3928.4434725876504
+      },
+      {
+        "ShowGeometry": false,
+        "Name": "Element.Geometry",
+        "Id": "cdaecc48586a4805af51472579cb8046",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -1221.67445036438,
+        "Y": 3493.46007285076
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Solid.Area",
+        "Id": "7ec407d1026d4d7d92f2496396499791",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -972.504545850475,
+        "Y": 3498.43098275932
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "List.Flatten",
+        "Id": "5564add84a1a4cde94558b2c979f1981",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -228.250259293365,
+        "Y": 3497.59597564059
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "surface_area",
+        "Id": "1a990646d308444891f9d136991f9bd4",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -5.09530842485538,
+        "Y": 3494.48202797715
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "ax1s",
+        "Id": "cc56ff7c6ef24bd2aebf92140567cae4",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 32.2749022396391,
+        "Y": 4169.11285008731
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Room.Name",
+        "Id": "2d3f07090ba34f0188154e8198031e08",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -80.3261661809679,
+        "Y": 446.088167240249
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Room.Number",
+        "Id": "f0c7e42094184d4d8e24782ff3e6a1a7",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -80.9395005715146,
+        "Y": 156.960150690273
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Watch",
+        "Id": "d23ba437290a418b9e6dfb6a2748e823",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1538.3247400875171,
+        "Y": 2825.6571432904184
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "List.Transpose",
+        "Id": "3535e1286fce4676ab41be2f8f005dad",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1926.3845371898669,
+        "Y": 2825.1152680579485
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "List Create",
+        "Id": "44caa4cfa2794ae1a79a48801f7d4b9d",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 2301.3363893020428,
+        "Y": 1541.5464550114341
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "String",
+        "Id": "0fc91c0317184d8196a73b8aeacf1aa7",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1716.0437158898967,
+        "Y": 1399.6958879141039
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "String",
+        "Id": "65c9de2474374d199e835da909d32745",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1713.8325352791016,
+        "Y": 1524.865992866514
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "String",
+        "Id": "76fbb7b7ba44490abfd8325f8f00d250",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1713.0172838565736,
+        "Y": 1644.370413519614
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "String",
+        "Id": "5f64f241602c4cadb7e14d3e6b2b60da",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1703.9217387091387,
+        "Y": 2032.4470064768341
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "String",
+        "Id": "259a13f95eb14cc6a3a10887dec6e9aa",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1704.7369901316588,
+        "Y": 1912.9425858237339
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "String",
+        "Id": "8998f971b76b432997bfcee6d017a31a",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1706.9481707424588,
+        "Y": 1787.772480871324
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "String",
+        "Id": "74754d5c48f3482d8d464d5cd9fd8440",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1702.4058145178997,
+        "Y": 2432.650992963971
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "String",
+        "Id": "f8cb11239e574de387bb42f7e00f2b5a",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1703.2210659404195,
+        "Y": 2313.1465723108722
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "String",
+        "Id": "0c53bf987eb5467d8c712100f1a8281d",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1705.4322465512196,
+        "Y": 2187.9764673584641
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "String",
+        "Id": "f0051789eb7d4c95a48a0307ed2a6e2b",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1705.4376629003787,
+        "Y": 2837.402752024821
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "String",
+        "Id": "1dfd8ee88d7f45b2bf9d88d25867772a",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1706.2529143228976,
+        "Y": 2717.8983313717217
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "String",
+        "Id": "c318a48349a94f998fa6e4b0d90ed3d2",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1708.4640949336977,
+        "Y": 2592.7282264193109
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "String",
+        "Id": "2970096d83654c9cbd1b1b78fff837e4",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1712.3322515251307,
+        "Y": 1264.2274386001641
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Watch",
+        "Id": "1e52988761f143d18e4cee82c6856520",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 2612.4383445369226,
+        "Y": 1546.060655716444
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "GUID",
+        "Id": "fe41a6c33eaa417c874148bfdbde59d8",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -49.8401468038767,
+        "Y": -144.709735681745
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "List Create",
+        "Id": "5436161dd7ba4907808ec4bd59242dfd",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 3453.2155741102388,
+        "Y": 1741.7559408460966
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "String",
+        "Id": "099f77aec3b14f5eb0e68ed326e40cc6",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 2994.057906237289,
+        "Y": 1399.6622580651306
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "String",
+        "Id": "2b65415cfd8d4848a8851711d09eb8f9",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 2998.9858076046189,
+        "Y": 1530.2516442994247
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "String",
+        "Id": "9af78793a3dc434ba0ae666b98fb4dc6",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 2995.2898815791191,
+        "Y": 1660.8410305337175
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "String",
+        "Id": "a2a178067e62453a9b35c0517ab2b2b1",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 3006.377659655619,
+        "Y": 2066.1609179967595
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "String",
+        "Id": "a9b75247efc645948ccf16459fa2feba",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 3010.0735856811189,
+        "Y": 1935.5715317624667
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "String",
+        "Id": "49a7e1ed670a47b490d1b1eb0cdea463",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 3005.1456843137889,
+        "Y": 1804.9821455281735
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "String",
+        "Id": "f05e7c8bf6474e9a866e4d2f6cfb859f",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 3016.9430831793843,
+        "Y": 2647.2763205704086
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "String",
+        "Id": "01e8bb70f06f402da57fdb343c3aa037",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 3001.4497582882886,
+        "Y": 2351.9791973020065
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "String",
+        "Id": "39d27be35ea74c35b96da10fa488ae15",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 2996.5218569209587,
+        "Y": 2221.3898110677137
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "String",
+        "Id": "b124ba838fc0479fabd91dc32b73c8b6",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 3010.4380334161265,
+        "Y": 2800.0019727435265
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "String",
+        "Id": "32f46fe863ab48789427dacba3ab536d",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 3002.7392539515208,
+        "Y": 2481.3972477587126
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Convert Between Units",
+        "Id": "810b3f41348143eb8c7e75eaeac59ca9",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -722.29123184636546,
+        "Y": 3484.0125059496218
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Data.ExportExcel",
+        "Id": "a655023221d2423ead49a3aa20f4dcbb",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 3313.6072283857766,
+        "Y": 3356.9738210796904
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "String",
+        "Id": "1d8da01c855046d18b9f16f8a703eb0b",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 3149.6426031987435,
+        "Y": 3514.3367257216264
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "String",
+        "Id": "faba6a37f1164cc3acf203f6d5eeab97",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 3088.4864746020185,
+        "Y": 3301.5544693899396
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Code Block",
+        "Id": "c1c14d7ba9e749868f9c400acd65f5d7",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 3118.58552100318,
+        "Y": 3407.8287408084229
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Convert Between Units",
+        "Id": "6ba58e59232740878afce19e0c00d2be",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -274.30379421718158,
+        "Y": 2000.847399905357
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Convert Between Units",
+        "Id": "d90780a1d6844e40bf6117e1bd2aad9d",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -272.59619741769484,
+        "Y": 2279.0664545116006
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Convert Between Units",
+        "Id": "273994b10a714d63b4cb692e9650ab4f",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -254.11727285221036,
+        "Y": 2586.2515103081564
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Z = height of boundingbox",
+        "Id": "51c697d9de5e48cfa4206923bde8d3b4",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 223.775378366209,
+        "Y": 2601.71259701604
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Cuboid.Height",
+        "Id": "95d542a4b39e4b778976960c57887380",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -531.468836756062,
+        "Y": 2609.73846282699
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Convert Between Units",
+        "Id": "1ec2efeb230f464ba28dc18eda702db3",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -48.319723735889738,
+        "Y": 1561.2127747381396
+      }
+    ],
+    "Annotations": [
+      {
+        "Id": "28a9a0d2e7614843a515ddb322287064",
+        "Title": "Surface area",
+        "Nodes": [
+          "cdaecc48586a4805af51472579cb8046",
+          "7ec407d1026d4d7d92f2496396499791",
+          "5564add84a1a4cde94558b2c979f1981",
+          "1a990646d308444891f9d136991f9bd4"
+        ],
+        "Left": -1231.67445036438,
+        "Top": 3440.46007285076,
+        "Width": 1497.5791419395246,
+        "Height": 176.1359027898302,
+        "FontSize": 36.0,
+        "InitialTop": 3493.46007285076,
+        "InitialHeight": 149.97090990856032,
+        "TextblockHeight": 43.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "434973264f9c4bcd8793ceb3aa295dd7",
+        "Title": "X",
+        "Nodes": [
+          "826543badf88462db9dbeaa043e733a7",
+          "6db252a84f7e45d1a6b9e8d1a8299f2f"
+        ],
+        "Left": -550.246519527669,
+        "Top": 1957.0955467659778,
+        "Width": 1032.9883015222301,
+        "Height": 146.08486145403185,
+        "FontSize": 36.0,
+        "InitialTop": 2010.0955467659778,
+        "InitialHeight": 153.96650158333978,
+        "TextblockHeight": 43.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "be06a493bb874d628bfb1d3bef613a9f",
+        "Title": "Y",
+        "Nodes": [
+          "ac6513ae6e98446fbdf0aa4fd3c406cd",
+          "c695a4b024904e2199126699c06d2fec"
+        ],
+        "Left": -530.55500960081258,
+        "Top": 2253.8410682081276,
+        "Width": 1019.0543744459461,
+        "Height": 150.54947382825821,
+        "FontSize": 36.0,
+        "InitialTop": 2306.8410682081276,
+        "InitialHeight": 145.86386364232976,
+        "TextblockHeight": 43.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "c260a4fdb288495ba4a06c3bc1a5309e",
+        "Title": "Aspect ratio",
+        "Nodes": [
+          "d9ef63e78b9e45d5b199a45a673caf1c"
+        ],
+        "Left": 285.21546957691862,
+        "Top": 2970.8414349234095,
+        "Width": 410.0,
+        "Height": 156.0,
+        "FontSize": 36.0,
+        "InitialTop": 3023.8414349234095,
+        "InitialHeight": 145.0,
+        "TextblockHeight": 43.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "9021067dcbaf45a5b4a65e33e44a96e3",
+        "Title": "Perimeter",
+        "Nodes": [
+          "a951137010364685a5d0138dfc3f240a",
+          "48367a7c53cc4043aef4a17e73dd2c89",
+          "213773e2e44d485a96ea4a03692c73fb",
+          "a0bdfad3ee574ce2acf298ab4562c817",
+          "681da51a43bc462fbbba0340abdda8a2"
+        ],
+        "Left": -1281.52756407734,
+        "Top": 1523.33631501711,
+        "Width": 1973.1279945958081,
+        "Height": 174.31086537232,
+        "FontSize": 36.0,
+        "InitialTop": 1576.33631501711,
+        "InitialHeight": 150.03340328908985,
+        "TextblockHeight": 43.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "a9676c84361c4142bf83fcf665f31da5",
+        "Title": "Volumes",
+        "Nodes": [
+          "6939901244374af69fb8a7cc48b1720f",
+          "63d781eb8f32408bbdc6ff53e106aeba"
+        ],
+        "Left": -1182.15715959496,
+        "Top": 1074.3819284622,
+        "Width": 1266.3997004142839,
+        "Height": 146.77484452985004,
+        "FontSize": 36.0,
+        "InitialTop": 1127.3819284622,
+        "InitialHeight": 145.77484452985004,
+        "TextblockHeight": 43.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "198ebe4539354b72ab76c2ef2023c196",
+        "Title": "Areas",
+        "Nodes": [
+          "6a046ff143bf4c27af446a005d3d18b3",
+          "6a234d9f25e34004b491bdfca481d463"
+        ],
+        "Left": -1189.4587705213,
+        "Top": 623.240775212989,
+        "Width": 1283.1397104264681,
+        "Height": 151.55453315761702,
+        "FontSize": 36.0,
+        "InitialTop": 676.240775212989,
+        "InitialHeight": 150.55453315761702,
+        "TextblockHeight": 43.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "975080ca07ab4a8b93c891d92a67ceea",
+        "Title": "No. of boundary line",
+        "Nodes": [
+          "8bb0e9c7dff34f329ab6f343b37881c1"
+        ],
+        "Left": 282.70607976610904,
+        "Top": 3788.4434725876504,
+        "Width": 191.0,
+        "Height": 233.0,
+        "FontSize": 36.0,
+        "InitialTop": 3928.4434725876504,
+        "InitialHeight": 145.0,
+        "TextblockHeight": 130.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "e5bad857fa6e4ee3a822ee0d95d08364",
+        "Title": "ax1s",
+        "Nodes": [
+          "cc56ff7c6ef24bd2aebf92140567cae4"
+        ],
+        "Left": 22.274902239639097,
+        "Top": 4116.11285008731,
+        "Width": 408.0,
+        "Height": 156.0,
+        "FontSize": 36.0,
+        "InitialTop": 4169.11285008731,
+        "InitialHeight": 145.0,
+        "TextblockHeight": 43.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "2baeeee8f3974c609cff520ef1e4bcc9",
+        "Title": "Rooms",
+        "Nodes": [
+          "91a6d89a5aed43d1834e5b89727503f5",
+          "0cb82f7be46f4dd2bda94d6e218656ab"
+        ],
+        "Left": -2974.2735512689706,
+        "Top": -212.93545159116866,
+        "Width": 469.12217387468991,
+        "Height": 146.20039922157002,
+        "FontSize": 36.0,
+        "InitialTop": -159.93545159116866,
+        "InitialHeight": 145.20039922157002,
+        "TextblockHeight": 43.0,
+        "Background": "#FFD4B6DB"
+      },
+      {
+        "Id": "d700c6f8ad594dfa9adf766a2c1fa42a",
+        "Title": "Room name",
+        "Nodes": [
+          "2d3f07090ba34f0188154e8198031e08"
+        ],
+        "Left": -90.3261661809679,
+        "Top": 393.088167240249,
+        "Width": 206.0,
+        "Height": 146.00000000000006,
+        "FontSize": 36.0,
+        "InitialTop": 446.088167240249,
+        "InitialHeight": 145.00000000000006,
+        "TextblockHeight": 43.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "42e887dffa214601b96311a0b88f5c19",
+        "Title": "Room number",
+        "Nodes": [
+          "f0c7e42094184d4d8e24782ff3e6a1a7"
+        ],
+        "Left": -90.9395005715146,
+        "Top": 60.960150690273,
+        "Width": 206.0,
+        "Height": 189.0,
+        "FontSize": 36.0,
+        "InitialTop": 156.960150690273,
+        "InitialHeight": 145.0,
+        "TextblockHeight": 86.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "b7fe6914951b442cb694a548b160d17f",
+        "Title": "Name of columns in DataFrame",
+        "Nodes": [
+          "44caa4cfa2794ae1a79a48801f7d4b9d",
+          "0fc91c0317184d8196a73b8aeacf1aa7",
+          "65c9de2474374d199e835da909d32745",
+          "76fbb7b7ba44490abfd8325f8f00d250",
+          "5f64f241602c4cadb7e14d3e6b2b60da",
+          "259a13f95eb14cc6a3a10887dec6e9aa",
+          "8998f971b76b432997bfcee6d017a31a",
+          "74754d5c48f3482d8d464d5cd9fd8440",
+          "f8cb11239e574de387bb42f7e00f2b5a",
+          "0c53bf987eb5467d8c712100f1a8281d",
+          "f0051789eb7d4c95a48a0307ed2a6e2b",
+          "1dfd8ee88d7f45b2bf9d88d25867772a",
+          "c318a48349a94f998fa6e4b0d90ed3d2",
+          "2970096d83654c9cbd1b1b78fff837e4",
+          "1e52988761f143d18e4cee82c6856520"
+        ],
+        "Left": 1692.4058145178997,
+        "Top": 1211.2274386001641,
+        "Width": 1101.0325300190229,
+        "Height": 1694.1753134246569,
+        "FontSize": 36.0,
+        "InitialTop": 1264.2274386001641,
+        "InitialHeight": 1718.1753134246569,
+        "TextblockHeight": 43.0,
+        "Background": "#FFE8F7AD"
+      },
+      {
+        "Id": "38543d0d6ad54eb49ecd91bfd0ee99c2",
+        "Title": "Preprocessed dataset for create DataFrame",
+        "Nodes": [
+          "315abb6afc5a48dabe66bad63e99eaa3",
+          "d23ba437290a418b9e6dfb6a2748e823",
+          "3535e1286fce4676ab41be2f8f005dad"
+        ],
+        "Left": 1253.4453022394468,
+        "Top": 2767.7714803903082,
+        "Width": 849.93923495042009,
+        "Height": 435.88566290011022,
+        "FontSize": 36.0,
+        "InitialTop": 2820.7714803903082,
+        "InitialHeight": 149.88566290011022,
+        "TextblockHeight": 43.0,
+        "Background": "#FF71C6A8"
+      },
+      {
+        "Id": "2baac6d1fe6f4a7a9c6c2713302953f9",
+        "Title": "GUID",
+        "Nodes": [
+          "fe41a6c33eaa417c874148bfdbde59d8"
+        ],
+        "Left": -59.8401468038767,
+        "Top": -197.709735681745,
+        "Width": 144.0,
+        "Height": 157.0,
+        "FontSize": 36.0,
+        "InitialTop": -144.709735681745,
+        "InitialHeight": 145.0,
+        "TextblockHeight": 43.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "39ff111c74a64e89a34b6d5fefeba815",
+        "Title": "Z",
+        "Nodes": [
+          "95d542a4b39e4b778976960c57887380",
+          "51c697d9de5e48cfa4206923bde8d3b4"
+        ],
+        "Left": -541.468836756062,
+        "Top": 2548.71259701604,
+        "Width": 1036.24421512227,
+        "Height": 154.02586581095,
+        "FontSize": 36.0,
+        "InitialTop": 2601.71259701604,
+        "InitialHeight": 154.17364839005,
+        "TextblockHeight": 43.0,
+        "Background": "#FFC1D676"
+      }
+    ],
+    "X": 522.04000581982439,
+    "Y": -834.65436928220652,
+    "Zoom": 0.38058889384776473
+  }
+}

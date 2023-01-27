@@ -1,0 +1,352 @@
+{
+  "Uuid": "74ad168b-7245-4f89-9328-f9865c6c8c6d",
+  "IsCustomNode": false,
+  "Description": null,
+  "Name": "change_window_operation_type",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [
+    {
+      "Id": "5fda21861c6f42d7bd6ee4ca9cb7a537",
+      "Name": "String",
+      "Type": "string",
+      "Value": "DoublePanelVertical",
+      "Description": "문자열을 작성합니다."
+    }
+  ],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "\"작업\";",
+      "Id": "943663b2e3fd4b40b2855e0612229531",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "0a3644497cb34b9bb42697c42ad26ecc",
+          "Name": "",
+          "Description": "선 1의 표현식 값",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "DesignScript 코드를 직접 작성할 수 있습니다"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.Element.SetParameterByName@string,var",
+      "Id": "2bd9ec270b4345dd9f5c3a4528419e60",
+      "Inputs": [
+        {
+          "Id": "2814cdfe64ad4eaca7288e1c2e86325f",
+          "Name": "element",
+          "Description": "Revit.Elements.Element",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "e4d7e7e837ce409abd32ea6e1b51b91b",
+          "Name": "parameterName",
+          "Description": "설정할 매개변수의 이름.\n\nstring",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "f4fe8d3eb176463794b9314d57b1013b",
+          "Name": "value",
+          "Description": "값.\n\nvar",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "48ca21c694834abda2edcbcc05d217ac",
+          "Name": "Element",
+          "Description": "Element",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "요소의 매개변수 중 하나를 설정합니다.\n\nElement.SetParameterByName (parameterName: string, value: var): Element"
+    },
+    {
+      "ConcreteType": "DSRevitNodesUI.FamilyTypes, DSRevitNodesUI",
+      "SelectedIndex": 115,
+      "SelectedString": "WD315-두짝 미서기창(플라스틱):WD315-두짝 미서기창(플라스틱) 2000x1400mm(침실) 2",
+      "NodeType": "ExtensionNode",
+      "Id": "82ef20566e684cb5b5cc594e3f67bb5d",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "2243dd2fbc1e40f18f198edbe0dc9c31",
+          "Name": "Family Type",
+          "Description": "선택된 Family Type",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "문서에서 사용할 수 있는 모든 패밀리 유형."
+    },
+    {
+      "ConcreteType": "DSRevitNodesUI.ElementsOfFamilyType, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "Id": "554f99215f974b6da15cdf005053a96d",
+      "Inputs": [
+        {
+          "Id": "3b9db09f59df40f19f4f64d004809c28",
+          "Name": "Family Type",
+          "Description": "패밀리 유형.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "a31a84f0abb44db8af05b902022cbc88",
+          "Name": "Elements",
+          "Description": "쿼리와 일치하는 요소의 리스트.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "모델에서 지정된 패밀리 유형의 모든 요소를 가져옵니다."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.FamilyInstance.GetFamily",
+      "Id": "6068f7245ad544019acbb4c801cd2b74",
+      "Inputs": [
+        {
+          "Id": "50dc74fe3ed94073b2a211aecd93aeae",
+          "Name": "familyInstance",
+          "Description": "Revit.Elements.FamilyInstance",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "57c589b91c6c42729cf51d58126ea684",
+          "Name": "Family",
+          "Description": "Family",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "이 패밀리 인스턴스(instance)의 패밀리를 가져옵니다\n\nFamilyInstance.GetFamily: Family"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.Family.Types",
+      "Id": "36434ec42e27456fa1d3a0c00a13172a",
+      "Inputs": [
+        {
+          "Id": "06304ac3675c4369b242cb0a4b10dcc8",
+          "Name": "family",
+          "Description": "Revit.Elements.Family",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "e6ca44c1492a429b9d0294cc9b22cca9",
+          "Name": "FamilyType[]",
+          "Description": "FamilyType[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "이 Family에서 FamilyTypes를 얻습니다.\n\nFamily.Types: FamilyType[]"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.StringInput, CoreNodeModels",
+      "NodeType": "StringInputNode",
+      "InputValue": "DoublePanelVertical",
+      "Id": "5fda21861c6f42d7bd6ee4ca9cb7a537",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "cef64b36373c4fe190eaf02443c2f534",
+          "Name": "",
+          "Description": "String",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "문자열을 작성합니다."
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "0a3644497cb34b9bb42697c42ad26ecc",
+      "End": "e4d7e7e837ce409abd32ea6e1b51b91b",
+      "Id": "2be02f479604434281994f214a69b8f2"
+    },
+    {
+      "Start": "2243dd2fbc1e40f18f198edbe0dc9c31",
+      "End": "3b9db09f59df40f19f4f64d004809c28",
+      "Id": "feb93dae8e9d4253bfb15633aa3b8ea0"
+    },
+    {
+      "Start": "a31a84f0abb44db8af05b902022cbc88",
+      "End": "50dc74fe3ed94073b2a211aecd93aeae",
+      "Id": "8ebed8a8ad2e40e5a9445ab01b418ab3"
+    },
+    {
+      "Start": "57c589b91c6c42729cf51d58126ea684",
+      "End": "06304ac3675c4369b242cb0a4b10dcc8",
+      "Id": "7c15b863a1104996bfd49768040038d4"
+    },
+    {
+      "Start": "e6ca44c1492a429b9d0294cc9b22cca9",
+      "End": "2814cdfe64ad4eaca7288e1c2e86325f",
+      "Id": "7afc118e84af4748a9cc44e8362e0172"
+    },
+    {
+      "Start": "cef64b36373c4fe190eaf02443c2f534",
+      "End": "f4fe8d3eb176463794b9314d57b1013b",
+      "Id": "1037fe1478a941fba9db64010eee8344"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.10.1.3976",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "배경 미리보기",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "Code Block",
+        "Id": "943663b2e3fd4b40b2855e0612229531",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1167.7299703264096,
+        "Y": 265.54896142433233
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Element.SetParameterByName",
+        "Id": "2bd9ec270b4345dd9f5c3a4528419e60",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1438.2626112759644,
+        "Y": 249.106824925816
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Family Types",
+        "Id": "82ef20566e684cb5b5cc594e3f67bb5d",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -227.05192878338266,
+        "Y": 42.204747774480722
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "All Elements of Family Type",
+        "Id": "554f99215f974b6da15cdf005053a96d",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 412.629080118694,
+        "Y": 35.688427299703335
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "FamilyInstance.GetFamily",
+        "Id": "6068f7245ad544019acbb4c801cd2b74",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 725.98219584569722,
+        "Y": -2.2937685459939985
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Family.Types",
+        "Id": "36434ec42e27456fa1d3a0c00a13172a",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1023.9050445103856,
+        "Y": 103.3442136498515
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "String",
+        "Id": "5fda21861c6f42d7bd6ee4ca9cb7a537",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 909.68168941994577,
+        "Y": 391.38699400795997
+      }
+    ],
+    "Annotations": [],
+    "X": 319.735,
+    "Y": 97.8075,
+    "Zoom": 0.70823125000000009
+  }
+}
